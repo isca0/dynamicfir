@@ -2,6 +2,7 @@
 #By:Zz0
 #zz0@garagemhacker.org
 #19/08/2014
+#version:0.1
 #This script has the objective to update iptables rules for ddns users.
 #If you need to insert dynamic hosts on your firewall rules this is made for U
 #Just change the global vars for your necessit, and enjoy ;)
