@@ -1,6 +1,6 @@
 #!/bin/sh
-#by:Zz0 (zz0@garagemhacker.org)
-#version: 0.2
+#by:isca0 igorsca at gmail
+#version: 0.3
 conf="/etc/dynamicfir.conf"
 current="/tmp/currentchain0"
 apply="/tmp/apply0"
@@ -176,6 +176,25 @@ then
 	done < $oldchain
 fi
 }
+
+#Adciona regras manualmente para ser usado em ends
+added(){
+MINPAR=5
+#if [ $# -lt "$MINPAR" ]
+#then
+#	echo "Ops... falta de parametros...
+#ex.: $0 -a fulano.ddns.net 3389 192.168.1.254
+#"
+#	exit
+#fi
+read -p "Qual e o endereco ddns? " host
+read -p "Porta de origem? " inport
+read -p "Endereco ip local? " ip
+read -p "Porta de destino? " outport
+
+echo $host $inport $ip $outport
+}
+
 first_run(){
 if [ ! -e $conf ]
 then
@@ -193,6 +212,11 @@ fi
 }
 
 case "$1" in
+-a)
+added
+;;
+-r)
+;;
 -z)
 limpazona
 rm -rf $current >/dev/null 2>&1
